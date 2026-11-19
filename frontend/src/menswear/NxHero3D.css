@@ -1,0 +1,98 @@
+/* =====================================================================
+   NEXORA MENSWEAR: home hero (poster style: white, black, gold) with a real 3D photo stage
+   ===================================================================== */
+.nx .nxh { position: relative; isolation: isolate; overflow: hidden; padding: 34px 0 78px; min-height: min(860px, calc(100svh - 110px)); display: flex; align-items: center;
+  background: radial-gradient(90% 70% at 85% 10%, #fff 0%, #fbf7ec 55%, #f4ecd8 100%); }
+.nx .nxh-bg { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.nx .nxh-bg i { position: absolute; border-radius: 50%; filter: blur(70px); opacity: .55; animation: nxh-drift 16s ease-in-out infinite alternate; }
+.nx .nxh-bg .o1 { width: 38vw; height: 38vw; left: -10%; top: -12%; background: #f1d37d; opacity: .35; }
+.nx .nxh-bg .o2 { width: 30vw; height: 30vw; right: 6%; bottom: -14%; background: #e6c26a; opacity: .4; animation-delay: -6s; }
+.nx .nxh-bg .o3 { width: 18vw; height: 18vw; right: 38%; top: 8%; background: #fff; opacity: .9; animation-delay: -3s; }
+.nx .nxh-word { position: absolute; left: 50%; bottom: -2.5vw; transform: translateX(-50%); font-family: var(--display); font-weight: 900; font-size: clamp(6rem, 22vw, 20rem); letter-spacing: .06em; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px rgba(184, 137, 42, .22); white-space: nowrap; user-select: none; }
+
+.nx .nxh-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(20px, 4vw, 64px); align-items: center; width: min(1240px, 100% - 32px); }
+.nx .nxh-copy { position: relative; z-index: 2; }
+.nx .nxh-in { opacity: 0; transform: translateY(18px); animation: nxh-rise .8s cubic-bezier(.22, 1, .36, 1) forwards; animation-delay: var(--d, 0s); }
+.nx .nxh-kicker, .nx .nxh-sub { display: flex; align-items: center; gap: 14px; font-size: .78rem; font-weight: 500; letter-spacing: .38em; color: var(--text2); margin: 0 0 18px; }
+.nx .nxh-sub { margin: 14px 0 26px; }
+.nx .nxh-kicker i, .nx .nxh-sub i { width: 1px; height: 14px; background: var(--gold); }
+
+.nx .nxh-h1 { margin: 0 !important; line-height: .95 !important; }
+.nx .nxh-brush { display: inline-block; position: relative; padding: 9px 38px 9px 30px; margin: 0 0 8px -6px; font-family: var(--body); font-weight: 600; font-size: clamp(.9rem, 1.6vw, 1.15rem); letter-spacing: .5em; text-transform: uppercase; color: #14100a;
+  background: linear-gradient(100deg, #9c7420, #e3bd5a 40%, #f4dc92 55%, #c99a31 80%, #9c7420);
+  clip-path: polygon(0 12%, 6% 0, 14% 8%, 30% 0, 52% 6%, 74% 0, 90% 8%, 100% 0, 97% 55%, 100% 100%, 80% 92%, 60% 100%, 36% 93%, 14% 100%, 5% 90%, 0 100%, 3% 50%); }
+.nx .nxh-line { display: block; overflow: hidden; padding: .04em .06em .1em 0; }
+.nx .nxh-line b { display: block; font-family: var(--display); font-weight: 900; font-size: clamp(3.3rem, 9.4vw, 7.6rem); line-height: .98; letter-spacing: -.005em; text-transform: uppercase; color: #0c0b09; transform: translateY(105%); animation: nxh-up 1s cubic-bezier(.22, 1, .36, 1) forwards; animation-delay: var(--d, 0s); }
+.nx .nxh-line.gold b { background: var(--gold-grad); background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: nxh-up 1s cubic-bezier(.22, 1, .36, 1) forwards, nxh-shine 6s linear 1.4s infinite; animation-delay: var(--d, 0s), 1.4s; }
+
+.nx .nxh-feats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; max-width: 520px; margin-bottom: 30px; perspective: 700px; }
+.nx .nxh-feats li { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 4px 6px; position: relative; }
+.nx .nxh-feats li + li::before { content: ''; position: absolute; left: 0; top: 10%; bottom: 10%; width: 1px; background: linear-gradient(transparent, rgba(184, 137, 42, .5), transparent); }
+.nx .nxh-ico { width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; font-size: 1.3rem; color: var(--ink); background: #fff; box-shadow: inset 0 0 0 1.5px var(--gold), 0 10px 22px -10px rgba(184, 137, 42, .6); margin-bottom: 8px; transition: transform .8s cubic-bezier(.22, 1, .36, 1), background .3s, color .3s; transform-style: preserve-3d; }
+.nx .nxh-feats li:hover .nxh-ico { transform: rotateY(360deg); background: var(--ink); color: var(--gold3); }
+.nx .nxh-feats b { font-size: .7rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; line-height: 1.2; }
+.nx .nxh-feats em { font-style: normal; font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.nx .nxh-cta { display: flex; flex-wrap: wrap; gap: 14px; }
+.nx .nxh-dots { display: flex; align-items: center; gap: 10px; margin-top: 26px; }
+.nx .nxh-dots a { width: 22px; height: 22px; border-radius: 50%; box-shadow: 0 0 0 2px #fff, 0 0 0 3px rgba(24, 18, 6, .25), 0 6px 12px -4px rgba(0, 0, 0, .35); transition: transform .3s cubic-bezier(.22, 1, .36, 1); }
+.nx .nxh-dots a:hover { transform: translateY(-5px) scale(1.18); }
+.nx .nxh-dots small { margin-left: 8px; font-size: .74rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+
+/* ---------- 3D stage ---------- */
+.nx .nxh-stagewrap { perspective: 1200px; display: grid; place-items: center; min-height: 460px; }
+.nx .nxh-stagewrap > .nxh-stage { animation: nxh-sway 10s ease-in-out infinite alternate; }
+.nx .nxh-stage { --mx: 0; --my: 0; position: relative; width: min(100%, 480px); aspect-ratio: 632 / 930; transform-style: preserve-3d; transition: transform .35s ease-out; transform: rotateY(calc(var(--mx) * 10deg)) rotateX(calc(var(--my) * -7deg)); }
+.nx .nxh-stage.live { animation: none; }
+.nx .nxh-stage > * { position: absolute; transform-style: preserve-3d; }
+.nx .nxh-photo { inset: 0; border-radius: 240px 240px 22px 22px; overflow: hidden; transform: translateZ(30px); box-shadow: 0 50px 80px -30px rgba(60, 40, 10, .55), 0 0 0 1px rgba(184, 137, 42, .5); background: #f3eee3; }
+.nx .nxh-photo img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.06) translate(calc(var(--mx) * -8px), calc(var(--my) * -6px)); transition: transform .35s ease-out; }
+.nx .nxh-frame { inset: 9% -11% -5% 12%; border: 2px solid var(--gold); border-radius: 18px; transform: translateZ(-50px) translate(calc(var(--mx) * 18px), calc(var(--my) * 12px)); opacity: .9; }
+.nx .nxh-ring { inset: -9%; transform: translateZ(-20px); }
+.nx .nxh-ring i { position: absolute; inset: 0; border-radius: 50%; border: 2px solid transparent; background: conic-gradient(from 0deg, transparent 0 55%, #b8892a 70%, #f1d37d 82%, transparent 94%) border-box; -webkit-mask: linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+.nx .nxh-ring i:nth-child(1) { animation: nxh-orbit1 14s linear infinite; }
+.nx .nxh-ring i:nth-child(2) { inset: 6%; animation: nxh-orbit2 19s linear infinite reverse; opacity: .8; }
+.nx .nxh-ring i:nth-child(3) { inset: -4%; border-width: 1px; animation: nxh-orbit3 26s linear infinite; opacity: .7; }
+
+.nx .nxh-card { pointer-events: none; }
+.nx .nxh-script { top: 4%; right: -16%; display: flex; flex-direction: column; font-family: var(--script); font-size: clamp(1.7rem, 3.3vw, 2.7rem); line-height: 1.02; color: #0c0b09; transform: translateZ(100px) rotate(-5deg) translate(calc(var(--mx) * 16px), calc(var(--my) * 10px)); text-shadow: 0 2px 14px rgba(255, 255, 255, .9); }
+.nx .nxh-script span:nth-child(2) { margin-left: .3em; }
+.nx .nxh-script em { font-style: normal; font-size: 1.25em; margin-left: .7em; background: var(--gold-grad); -webkit-background-clip: text; background-clip: text; color: transparent; position: relative; }
+.nx .nxh-script em::after { content: ''; position: absolute; left: -6%; right: -6%; bottom: -2px; height: 3px; border-radius: 3px; background: var(--gold-grad); transform: rotate(-3deg); }
+.nx .nxh-badge { right: -8%; bottom: 7%; width: 34%; padding: 14px 14px 14px 20px; display: flex; flex-direction: column; font-family: var(--script); font-size: clamp(1rem, 1.9vw, 1.45rem); line-height: 1.05; color: #fff; background: #0c0b09; clip-path: polygon(0 8%, 12% 0, 32% 6%, 60% 0, 88% 5%, 100% 0, 98% 40%, 100% 70%, 96% 100%, 70% 94%, 40% 100%, 14% 94%, 0 100%, 4% 55%); transform: translateZ(80px) rotate(-5deg) translate(calc(var(--mx) * 12px), calc(var(--my) * 8px)); }
+.nx .nxh-badge b { font-weight: 400; } .nx .nxh-badge b:nth-child(2) { margin-left: .5em; } .nx .nxh-badge b:nth-child(3) { color: var(--gold3); margin-left: 1em; }
+.nx .nxh-chip { left: -9%; bottom: 17%; display: inline-flex; align-items: center; gap: 9px; padding: 11px 18px; border-radius: 999px; background: #fff; font-size: .78rem; font-weight: 600; letter-spacing: .04em; box-shadow: 0 18px 34px -12px rgba(60, 40, 10, .45), inset 0 0 0 1px rgba(184, 137, 42, .45); transform: translateZ(70px) translate(calc(var(--mx) * 22px), calc(var(--my) * 14px)); animation: nxh-float 5s ease-in-out infinite alternate; }
+.nx .nxh-chip svg { color: var(--gold); }
+
+.nx .nxh-scroll { position: absolute; left: 50%; bottom: 16px; width: 22px; height: 36px; margin-left: -11px; border: 1.5px solid rgba(24, 18, 6, .4); border-radius: 12px; }
+.nx .nxh-scroll i { position: absolute; left: 50%; top: 7px; width: 3px; height: 7px; margin-left: -1.5px; border-radius: 2px; background: var(--gold); animation: nx-wheel 1.8s ease-in-out infinite; }
+
+@keyframes nxh-rise { to { opacity: 1; transform: none; } }
+@keyframes nxh-up { to { transform: translateY(0); } }
+@keyframes nxh-shine { to { background-position: -220% 0; } }
+@keyframes nxh-drift { from { transform: translate(0, 0) scale(1); } to { transform: translate(40px, 30px) scale(1.12); } }
+@keyframes nxh-sway { from { transform: rotateY(-7deg) rotateX(2deg); } to { transform: rotateY(7deg) rotateX(-2deg); } }
+@keyframes nxh-float { from { translate: 0 -6px; } to { translate: 0 8px; } }
+@keyframes nxh-orbit1 { from { transform: rotateX(72deg) rotateZ(0deg); } to { transform: rotateX(72deg) rotateZ(360deg); } }
+@keyframes nxh-orbit2 { from { transform: rotateX(62deg) rotateY(24deg) rotateZ(0deg); } to { transform: rotateX(62deg) rotateY(24deg) rotateZ(360deg); } }
+@keyframes nxh-orbit3 { from { transform: rotateY(76deg) rotateZ(0deg); } to { transform: rotateY(76deg) rotateZ(360deg); } }
+
+@media (max-width: 960px) {
+  .nx .nxh { padding: 26px 0 70px; min-height: 0; }
+  .nx .nxh-grid { grid-template-columns: 1fr; text-align: center; }
+  .nx .nxh-kicker, .nx .nxh-sub, .nx .nxh-cta, .nx .nxh-dots { justify-content: center; }
+  .nx .nxh-feats { margin-inline: auto; }
+  .nx .nxh-brush { margin-left: 0; }
+  .nx .nxh-stagewrap { min-height: 0; padding: 10px 0 20px; }
+  .nx .nxh-stage { width: min(78%, 400px); }
+  .nx .nxh-script { right: -8%; } .nx .nxh-badge { right: -4%; } .nx .nxh-chip { left: -4%; }
+}
+@media (max-width: 520px) {
+  .nx .nxh-feats { grid-template-columns: repeat(2, 1fr); gap: 16px 6px; }
+  .nx .nxh-feats li:nth-child(3)::before { display: none; }
+  .nx .nxh-cta .nx-btn { width: 100%; }
+  .nx .nxh-chip { font-size: .68rem; padding: 8px 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nx .nxh-in, .nx .nxh-line b { opacity: 1; transform: none; animation: none; }
+  .nx .nxh-stagewrap > .nxh-stage, .nx .nxh-ring i, .nx .nxh-chip, .nx .nxh-bg i { animation: none; }
+}

@@ -1,0 +1,87 @@
+{
+  "site": {
+    "name": "Nexora Menswear",
+    "phone": "+916383718976",
+    "phone2": "+919942148763",
+    "instagram": "https://www.instagram.com/nexora_menswear_",
+    "email": "nexorasolutions06@gmail.com",
+    "image": "/nexora/og-image.jpg",
+    "logo": "/nexora/logo.png",
+    "address": { "street": "Poduru", "locality": "Thiruchuli", "region": "Tamil Nadu", "district": "Erode", "country": "IN" },
+    "keywords": "Nexora Menswear, men's shirts, formal shirts, casual shirts, linen shirts, printed shirts, checked shirts, cotton shirts for men, buy shirts online, menswear Erode, menswear Thiruchuli, shirts Tamil Nadu, premium shirts India"
+  },
+  "pages": {
+    "/menswear": {
+      "title": "Nexora Menswear | Premium Men's Shirts, Erode & Thiruchuli",
+      "description": "Shop premium men's shirts online: soft cotton, breathable fabric and a perfect fit. Formal, casual, linen, printed and checked shirts. Order on WhatsApp or pay securely online.",
+      "h1": "Premium Men's Shirts",
+      "text": "Nexora Menswear brings classic looks and everyday comfort: soft cotton, breathable fabric, durable quality and a perfect fit. Browse formal, casual, linen, printed and checked shirts and order online or on WhatsApp.",
+      "changefreq": "weekly", "priority": "1.0"
+    },
+    "/menswear/shop": {
+      "title": "Shop Men's Shirts Online | Formal, Casual, Linen | Nexora",
+      "description": "Browse all Nexora Menswear shirts: formal, casual, printed, checked, linen and half sleeve. Real photos, size guide, secure online payment and order tracking.",
+      "h1": "Shop men's shirts",
+      "text": "Filter shirts by style, colour and price. Every shirt page shows fabric, sizes, a size guide and WhatsApp enquiry.",
+      "changefreq": "daily", "priority": "0.9"
+    },
+    "/menswear/about": {
+      "title": "About Nexora Menswear | Premium Shirts from Thiruchuli, Erode",
+      "description": "Nexora Menswear is a local menswear brand from Poduru, Thiruchuli, Erode. We make simple, classy shirts with soft cotton, breathable fabric and a perfect fit.",
+      "h1": "About Nexora Menswear",
+      "text": "Our story, our fabrics and how ordering works. Simple, classy shirts, always.",
+      "changefreq": "monthly", "priority": "0.6"
+    },
+    "/menswear/services": {
+      "title": "Services | Shirt Styling, Size Help & Fast Delivery | Nexora",
+      "description": "What Nexora Menswear offers: personal size help on WhatsApp, secure online payment, order tracking, careful packing and easy support for every shirt order.",
+      "h1": "Our services",
+      "text": "Size help, WhatsApp ordering, secure payment, order tracking and after-sales support.",
+      "changefreq": "monthly", "priority": "0.6"
+    },
+    "/menswear/happy-customers": {
+      "title": "Happy Customers & Reviews | Nexora Menswear",
+      "description": "Read real feedback from Nexora Menswear customers about shirt fit, fabric and delivery. Share your own photo and review after you order.",
+      "h1": "Happy customers",
+      "text": "Real reviews from real customers of Nexora Menswear.",
+      "changefreq": "weekly", "priority": "0.5"
+    },
+    "/menswear/faq": {
+      "title": "FAQ | Size, Delivery, Payment, Cancel & Refund | Nexora Menswear",
+      "description": "Answers about ordering shirts from Nexora Menswear: size guide, fabric care, online payment, delivery time, order tracking, cancellation and refunds.",
+      "h1": "Frequently asked questions",
+      "text": "Quick answers about sizes, payment, delivery, cancellation and refunds.",
+      "changefreq": "monthly", "priority": "0.6"
+    },
+    "/menswear/contact": {
+      "title": "Contact Nexora Menswear | WhatsApp 6383718976, Thiruchuli",
+      "description": "Contact Nexora Menswear: WhatsApp or call 6383718976 / 9942148763, Instagram @nexora_menswear_, or visit us at Poduru, Thiruchuli, Erode.",
+      "h1": "Contact us",
+      "text": "WhatsApp 6383718976, phone 9942148763, Instagram @nexora_menswear_. Poduru, Thiruchuli, Erode, Tamil Nadu.",
+      "changefreq": "monthly", "priority": "0.7"
+    },
+    "/menswear/terms": {
+      "title": "Terms & Conditions | Nexora Menswear",
+      "description": "Terms and conditions of Nexora Menswear: ordering, online payment, delivery, cancellation, refunds, damaged items and privacy.",
+      "h1": "Terms & Conditions",
+      "text": "Ordering, payment, delivery, cancellation, refunds and privacy terms of Nexora Menswear.",
+      "changefreq": "yearly", "priority": "0.3"
+    },
+    "/menswear/cart": { "title": "Your Cart | Nexora Menswear", "description": "Review the shirts in your Nexora Menswear cart.", "noindex": true },
+    "/menswear/checkout": { "title": "Checkout | Nexora Menswear", "description": "Secure checkout for your Nexora Menswear order.", "noindex": true },
+    "/menswear/my-orders": { "title": "My Orders | Nexora Menswear", "description": "Track your Nexora Menswear orders.", "noindex": true },
+    "/menswear/login": { "title": "Login | Nexora Menswear", "description": "Login or register to order from Nexora Menswear.", "noindex": true },
+    "/menswear/admin-login": { "title": "Admin | Nexora Menswear", "description": "Nexora Menswear admin.", "noindex": true },
+    "/menswear/admin": { "title": "Dashboard | Nexora Menswear", "description": "Nexora Menswear dashboard.", "noindex": true }
+  },
+  "faq": [
+    ["How do I place an order?", "Open a shirt, choose colour and size, then tap Add to cart or Buy now. Login, enter your delivery address and pay online."],
+    ["Can I order on WhatsApp instead?", "Yes. Tap Enquire on WhatsApp on any shirt. The shirt name, price, size and link are filled in for you."],
+    ["How do I choose my size?", "Open the Size guide on the shirt page. It shows chest, length and shoulder in inches. If you are between two sizes, take the bigger one for a relaxed fit."],
+    ["Which payment options are available?", "Online payment only: UPI, cards, net banking and wallets through Razorpay."],
+    ["What are the delivery charges?", "Delivery is free above Rs 1,999. Below that, Rs 70 is added at checkout."],
+    ["How do I track my order?", "Login and open My Orders to see each step from placed to delivered."],
+    ["Can I cancel my order?", "Yes. Open My Orders and tap Cancel order while the status is Order Placed or Confirmed."],
+    ["How do I wash a shirt so it lasts?", "Wash dark colours inside out in cold water, dry in shade and iron on the reverse side."]
+  ]
+}

@@ -1,0 +1,387 @@
+@property --tintx {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #b8892a;
+}
+
+/* =====================================================
+   NEXORA MENSWEAR HERO - black + neon gold + neon cyan
+   Background image: set nx.hero_bg in the dashboard, or
+   change DEFAULT_BG in NxRail.jsx, or put a file at
+   /public/images/hero-bg.jpg
+   ===================================================== */
+
+.nxr {
+  --g: var(--gold, #ffc233);        /* neon gold */
+  --g2: var(--cyan, #22e6ff);       /* neon cyan */
+  --bgc: #000000;                   /* pure black */
+  --ink: #f6f8ff;
+  --mute: rgba(226, 232, 244, .7);
+  --line: rgba(255, 194, 51, .35);
+  --line2: rgba(34, 230, 255, .35);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: var(--ink);
+  min-height: calc(100svh - 110px);
+  padding: 0 0 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #000;
+  transition: --tintx .9s ease;
+}
+
+.nxr *, .nxr *::before, .nxr *::after { box-sizing: border-box; }
+
+/* ---------- background: photo + black shade + neon glows ---------- */
+.nxr-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.nxr-bg i { position: absolute; display: block; inset: 0; }
+
+/* the background image */
+.nxr-bg .photo {
+  background-size: cover;
+  background-position: center;
+  filter: saturate(1.05) contrast(1.1) brightness(.75);
+  opacity: .6;
+  transform: scale(1.05);
+}
+
+/* black shade so shirts + text stay readable, with neon gold (top) and cyan (bottom-right) light */
+.nxr-bg .shade {
+  background:
+    radial-gradient(60% 45% at 50% 0%, rgba(255, 194, 51, .28), transparent 70%),
+    radial-gradient(55% 45% at 90% 95%, rgba(34, 230, 255, .26), transparent 70%),
+    radial-gradient(45% 40% at 5% 60%, rgba(34, 230, 255, .12), transparent 70%),
+    linear-gradient(180deg, rgba(0, 0, 0, .8) 0%, rgba(0, 0, 0, .45) 40%, rgba(0, 0, 0, .92) 100%);
+}
+
+/* glow that follows the colour of the centre shirt */
+.nxr-bg .glow {
+  background: radial-gradient(46% 42% at 50% 52%, color-mix(in srgb, var(--tintx) 38%, transparent), transparent 72%);
+  filter: blur(30px);
+}
+
+/* neon grid lines, fading toward the top */
+.nxr-bg .grid {
+  background-image:
+    linear-gradient(rgba(34, 230, 255, .09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 194, 51, .07) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 55%, #000 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 55%, #000 100%);
+}
+
+/* neon floor light under the shirts */
+.nxr-bg .floor {
+  top: auto; height: 38%;
+  background: radial-gradient(60% 100% at 50% 100%, rgba(255, 194, 51, .3), transparent 70%);
+}
+
+.nxr-bg .wash {
+  background: linear-gradient(180deg, rgba(0, 0, 0, .4) 0%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, .65) 100%);
+}
+
+/* thin neon lines at top and bottom edges */
+.nxr::before, .nxr::after {
+  content: "";
+  position: absolute; left: 0; right: 0; height: 2px; z-index: 6; pointer-events: none;
+  background: linear-gradient(90deg, transparent, var(--g), var(--g2), var(--g), transparent);
+  box-shadow: 0 0 14px var(--g), 0 0 28px color-mix(in srgb, var(--g2) 60%, transparent);
+}
+.nxr::before { top: 0; }
+.nxr::after { bottom: 0; }
+
+/* ---------- wordmark (neon gold chrome) ---------- */
+.nxr-logo {
+  position: relative;
+  z-index: 5;
+  margin-top: 34px;
+  text-align: center;
+  perspective: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.nxr-logo span {
+  position: relative;
+  font-family: var(--display, inherit);
+  font-size: clamp(38px, 8vw, 96px);
+  font-weight: 800;
+  letter-spacing: .16em;
+  padding-left: .16em;
+  line-height: 1;
+  color: transparent;
+  background: linear-gradient(180deg, #fff3c4 0%, #ffd24d 30%, #e69a00 52%, #ffe28a 60%, #8a5a00 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter:
+    drop-shadow(0 2px 0 #4a3008)
+    drop-shadow(0 6px 0 #140d02)
+    drop-shadow(0 0 18px rgba(255, 194, 51, .55))
+    drop-shadow(0 18px 26px rgba(0, 0, 0, .7));
+  animation: nxr-float 6s ease-in-out infinite alternate;
+}
+
+.nxr-logo span::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  padding-left: .16em;
+  background: linear-gradient(105deg, transparent 38%, rgba(34, 230, 255, .95) 50%, transparent 62%);
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: nxr-shine 5s ease-in-out infinite;
+}
+
+.nxr-logo small {
+  display: flex; align-items: center; gap: 14px;
+  font-size: clamp(11px, 1.4vw, 15px); font-weight: 600; letter-spacing: .5em;
+  color: var(--g2);
+  text-shadow: 0 0 10px var(--g2), 0 0 22px color-mix(in srgb, var(--g2) 55%, transparent);
+}
+.nxr-logo small::before, .nxr-logo small::after {
+  content: ""; width: clamp(24px, 6vw, 70px); height: 1px;
+  background: linear-gradient(90deg, transparent, var(--g2));
+  box-shadow: 0 0 8px var(--g2);
+}
+.nxr-logo small::after { transform: scaleX(-1); }
+.nxr-logo em { font-style: normal; font-size: 11px; letter-spacing: .34em; color: var(--mute); }
+
+@keyframes nxr-float {
+  from { transform: rotateX(6deg) translateY(0); }
+  to   { transform: rotateX(-3deg) translateY(-4px); }
+}
+@keyframes nxr-shine { from { background-position: 160% 0; } to { background-position: -60% 0; } }
+
+/* ---------- stage ---------- */
+.nxr-stage {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1400px;
+  outline: none;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.nxr-stage:focus-visible { box-shadow: inset 0 0 0 2px rgba(34, 230, 255, .6); border-radius: 18px; }
+
+/* neon ring behind the centre shirt */
+.nxr-halo {
+  position: absolute;
+  left: 50%;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 38%, rgba(255, 255, 255, .1), rgba(255, 255, 255, .03) 48%, transparent 72%);
+  border: 1px solid var(--line2);
+  box-shadow:
+    0 0 18px rgba(34, 230, 255, .45),
+    inset 0 0 70px color-mix(in srgb, var(--tintx) 35%, transparent),
+    0 0 70px color-mix(in srgb, var(--tintx) 25%, transparent);
+}
+
+.nxr-rail {
+  position: absolute; left: 0; top: 0; z-index: 1; pointer-events: none;
+  animation: nxr-glint 5s ease-in-out infinite alternate;
+}
+@keyframes nxr-glint {
+  from { filter: drop-shadow(0 0 2px rgba(34, 230, 255, .2)); }
+  to   { filter: drop-shadow(0 0 16px rgba(255, 194, 51, .7)); }
+}
+
+/* ---------- hanging pieces ---------- */
+.nxr-piece { position: absolute; left: 50%; top: 0; will-change: transform; perspective: 900px; }
+
+.nxr-swing {
+  position: relative;
+  display: flow-root;
+  transform-origin: 50% 0;
+  animation: nxr-sway 6.5s ease-in-out infinite alternate;
+}
+@keyframes nxr-sway { from { transform: rotate(-1.4deg); } to { transform: rotate(1.4deg); } }
+
+.nxr-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  filter: drop-shadow(0 12px 12px rgba(0, 0, 0, .6));
+  transition: transform .6s cubic-bezier(.22, 1, .36, 1), filter .4s;
+  transform-style: preserve-3d;
+}
+.nxr-card:focus-visible { outline: 2px solid var(--g2); outline-offset: 4px; border-radius: 12px; }
+
+/* centre shirt gets a neon gold edge glow */
+.nxr-piece.on .nxr-card {
+  filter: drop-shadow(0 0 14px rgba(255, 194, 51, .45)) drop-shadow(0 12px 12px rgba(0, 0, 0, .6));
+}
+
+/* thin string from the rail to the hanger */
+.nxr-string {
+  flex: none;
+  width: 1.5px;
+  background: linear-gradient(rgba(255, 255, 255, .9), rgba(255, 255, 255, .4));
+}
+.nxr-hanger { flex: none; width: 52%; height: auto; margin-bottom: -6%; overflow: visible; position: relative; z-index: 1; }
+.nxr-img { flex: none; width: 100%; display: block; object-fit: contain; }
+
+/* floating neon shadow under each shirt */
+.nxr-piece::after {
+  content: "";
+  position: absolute;
+  left: 50%; bottom: -26px;
+  width: 62%; height: 14px;
+  transform: translateX(-50%);
+  background: radial-gradient(closest-side, rgba(255, 194, 51, .35), transparent);
+  filter: blur(5px);
+  pointer-events: none;
+}
+
+/* hover: side pieces turn towards the centre, centre lifts */
+@media (hover: hover) and (min-width: 720px) {
+  .nxr-piece.l .nxr-card:hover { transform: rotateY(28deg) translateY(-8px) scale(1.04); }
+  .nxr-piece.r .nxr-card:hover { transform: rotateY(-28deg) translateY(-8px) scale(1.04); }
+  .nxr-piece.on .nxr-card:hover { transform: translateY(-6px) scale(1.02); }
+}
+
+/* ---------- arrows ---------- */
+.nxr-nav {
+  position: absolute; top: 46%; z-index: 30;
+  width: 46px; height: 46px; border-radius: 50%;
+  border: 1px solid var(--line2);
+  background: rgba(0, 0, 0, .45);
+  color: var(--g2);
+  display: grid; place-items: center;
+  cursor: pointer; font-size: 18px;
+  box-shadow: 0 0 14px rgba(34, 230, 255, .25);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  transition: background-color .25s, color .25s, border-color .25s, transform .25s, box-shadow .25s;
+}
+.nxr-nav:hover {
+  background: var(--g); border-color: var(--g); color: #1a1000; transform: scale(1.08);
+  box-shadow: 0 0 22px var(--g);
+}
+.nxr-nav.l { left: 16px; }
+.nxr-nav.r { right: 16px; }
+.nxr-nav:focus-visible { outline: 2px solid var(--g); outline-offset: 2px; }
+
+/* ---------- caption under the rail ---------- */
+.nxr-meta {
+  position: absolute; left: 0; right: 0; z-index: 20;
+  display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center;
+}
+.nxr-count { font-size: 12px; letter-spacing: .14em; color: var(--g2); text-shadow: 0 0 8px rgba(34, 230, 255, .6); }
+.nxr-meta h2 {
+  margin: 0; font-family: var(--display, inherit);
+  font-size: clamp(18px, 2.2vw, 24px); font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+  text-shadow: 0 0 16px rgba(255, 194, 51, .35);
+}
+.nxr-meta p {
+  margin: 0; color: var(--g); font-weight: 700; display: flex; gap: 10px; align-items: baseline;
+  text-shadow: 0 0 10px rgba(255, 194, 51, .6);
+}
+.nxr-meta s { color: var(--mute); font-weight: 400; font-size: .85em; text-shadow: none; }
+
+/* ---------- dots + CTA ---------- */
+.nxr-dots { display: flex; gap: 8px; justify-content: center; margin: 6px 0 22px; position: relative; z-index: 5; }
+.nxr-dots button {
+  width: 8px; height: 8px; padding: 0; border: 0; border-radius: 999px;
+  background: rgba(255, 255, 255, .26); cursor: pointer;
+  transition: width .35s, background-color .35s, box-shadow .35s;
+}
+.nxr-dots button.on { width: 26px; background: var(--g); box-shadow: 0 0 12px var(--g); }
+
+.nxr-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; padding: 0 16px; position: relative; z-index: 5; }
+
+/* ---------- product panel ---------- */
+.nxr-scrim {
+  position: fixed; inset: 0; z-index: 90;
+  background: rgba(0, 0, 0, .72);
+  backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+  opacity: 0; pointer-events: none;
+  transition: opacity .35s ease;
+}
+.nxr-scrim.on { opacity: 1; pointer-events: auto; }
+
+.nxr-panel {
+  position: fixed; top: 0; right: 0; bottom: 0; z-index: 100;
+  width: min(440px, 100%);
+  padding: 22px 22px 28px;
+  overflow-y: auto;
+  display: flex; flex-direction: column; gap: 10px;
+  background:
+    radial-gradient(80% 40% at 100% 0%, rgba(34, 230, 255, .14), transparent 70%),
+    radial-gradient(80% 40% at 0% 100%, rgba(255, 194, 51, .12), transparent 70%),
+    #05080d;
+  border-left: 1px solid var(--g);
+  box-shadow: -30px 0 60px rgba(0, 0, 0, .7), -2px 0 18px rgba(255, 194, 51, .35);
+  transform: translateX(105%);
+  transition: transform .5s cubic-bezier(.22, 1, .36, 1);
+}
+.nxr-panel.on { transform: none; }
+
+.nxr-close {
+  align-self: flex-end;
+  width: 38px; height: 38px; border-radius: 50%;
+  border: 1px solid var(--line2); background: rgba(255, 255, 255, .05);
+  color: var(--g2); display: grid; place-items: center; cursor: pointer; font-size: 18px;
+}
+.nxr-close:hover { background: var(--g); color: #1a1000; border-color: var(--g); box-shadow: 0 0 16px var(--g); }
+
+.nxr-gview {
+  position: relative; aspect-ratio: 4 / 5; border-radius: 16px; overflow: hidden;
+  border: 1px solid var(--line); background: #0b121c;
+  box-shadow: 0 0 24px rgba(255, 194, 51, .12);
+}
+.nxr-gview img, .nxr-ph { width: 100%; height: 100%; object-fit: cover; display: block; }
+.nxr-gn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 38px; height: 38px; border-radius: 50%; border: 0;
+  background: rgba(0, 0, 0, .6); color: var(--g2); display: grid; place-items: center; cursor: pointer;
+}
+.nxr-gn.l { left: 10px; }
+.nxr-gn.r { right: 10px; }
+.nxr-gn:hover { background: var(--g); color: #1a1000; }
+
+.nxr-thumbs { display: flex; gap: 8px; margin-top: 10px; overflow-x: auto; }
+.nxr-thumbs button {
+  flex: none; width: 56px; height: 68px; padding: 0; border-radius: 10px; overflow: hidden;
+  border: 2px solid transparent; opacity: .6; cursor: pointer; background: none;
+}
+.nxr-thumbs button.on { border-color: var(--g); opacity: 1; box-shadow: 0 0 12px rgba(255, 194, 51, .5); }
+.nxr-thumbs img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.nxr-eyebrow { font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--g2); margin-top: 6px; text-shadow: 0 0 8px rgba(34, 230, 255, .5); }
+.nxr-panel h3 { margin: 0; font-family: var(--display, inherit); font-size: 26px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; }
+.nxr-price { margin: 0; color: var(--g); font-weight: 700; font-size: 20px; display: flex; gap: 10px; align-items: baseline; text-shadow: 0 0 10px rgba(255, 194, 51, .5); }
+.nxr-price s { color: var(--mute); font-weight: 400; font-size: .75em; text-shadow: none; }
+.nxr-text { margin: 0; color: var(--mute); line-height: 1.6; }
+.nxr-sw { display: flex; gap: 8px; }
+.nxr-sw span { width: 22px; height: 22px; border-radius: 50%; box-shadow: 0 0 0 1px rgba(255, 255, 255, .45); }
+.nxr-go { margin-top: 8px; justify-content: center; }
+
+@media (max-width: 719px) {
+  .nxr-nav { display: none; }
+  .nxr-logo { margin-top: 22px; }
+  .nxr-logo small { letter-spacing: .34em; }
+  .nxr { padding-bottom: 36px; }
+  .nxr-bg .grid { background-size: 40px 40px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nxr-swing, .nxr-rail, .nxr-logo span, .nxr-logo span::after { animation: none; }
+  .nxr-card, .nxr-panel, .nxr-scrim { transition: none; }
+}

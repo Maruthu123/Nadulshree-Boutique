@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: nadulshree-api
+    runtime: node
+    rootDir: backend
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - { key: NODE_ENV, value: production }
+      - { key: DATABASE_URL, sync: false }
+      - { key: JWT_SECRET, generateValue: true }
+      - { key: ADMIN_EMAIL, value: nadulshreeboutique@gmail.com }
+      - { key: ADMIN_PASSWORD, sync: false }
+      - { key: CLIENT_URL, sync: false }
+      - { key: EMAIL_USER, sync: false }
+      - { key: EMAIL_PASS, sync: false }
+      - { key: RAZORPAY_KEY_ID, sync: false }
+      - { key: RAZORPAY_KEY_SECRET, sync: false }
+      - { key: NEXORA_WHATSAPP, value: "916383718976" }
+      - { key: NEXORA_PHONE_2, value: "9942148763" }
+      - { key: NEXORA_INSTAGRAM, value: nexora_menswear_ }
+      - { key: NEXORA_ADDRESS, value: "Poduru, Thiruchuli, Erode" }
+      - { key: NEXORA_ADMIN_EMAIL, value: nexorasolutions06@gmail.com }
+      - { key: NEXORA_ADMIN_PASSWORD, sync: false }
+      - { key: NEXORA_CLIENT_URL, sync: false }
