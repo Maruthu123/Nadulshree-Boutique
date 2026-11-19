@@ -13,6 +13,7 @@ import TestimonialSpotlight from '../components/TestimonialSpotlight';
 import Lightbox from '../components/Lightbox';
 import SectionHead from '../components/SectionHead';
 import Reveal from '../components/Reveal';
+import NexoraBanner from '../components/NexoraBanner';
 import { IMG } from '../data/images';
 import api, { inr } from '../api';
 import { useConfig } from '../context/ConfigContext';
@@ -139,6 +140,9 @@ export default function Home() {
           </Reveal>
         ))}
       </section>
+
+      {/* Nexora Menswear highlight: opens /menswear */}
+      <NexoraBanner />
 
       {/* ---------------- MARQUEE ---------------- */}
       <div className="marquee" aria-hidden>

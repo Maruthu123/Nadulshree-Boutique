@@ -1,11 +1,39 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FiSearch, FiShoppingBag, FiUser, FiMenu, FiX, FiLogOut, FiGrid, FiPackage } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
 import { useAuth } from '../context/AuthContext';
 import { useNxCart } from './NxCartContext';
 import { useNx, waLink } from './nxUtils';
+
+/* ============================================================
+   LOGO SETTING - logo maathanum na inga mattum maathunga
+   ============================================================
+   LOGO_NAME : public folder la irukkura logo file name (extension illama)
+               Example: public/nexora/logo.png  ->  '/nexora/logo'
+                        public/nx.jpg           ->  '/nx'
+   Extension theriyala na paravaayilla, ella extension-um auto-a try pannum.
+*/
+const LOGO_NAME = '/logo1';
+const LOGO_EXTS = ['png', 'jpg', 'jpeg', 'webp', 'svg', 'PNG', 'JPG', 'JPEG', 'jfif', 'avif'];
+
+function NxLogo({ width, height, alt = '' }) {
+  const [i, setI] = useState(0);
+  if (i >= LOGO_EXTS.length) return null;
+  const src = `${LOGO_NAME}.${LOGO_EXTS[i]}`;
+  return (
+    <img
+      key={src}
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      style={{ objectFit: 'contain' }}
+      onError={() => setI((n) => n + 1)}
+    />
+  );
+}
 
 const LINKS = [
   ['/menswear', 'Home', true],
@@ -66,7 +94,7 @@ export default function NxHeader() {
       <header className={`nx-hdr ${scrolled ? 'solid' : ''}`}>
         <div className="nx-hdr-row">
           <Link to="/menswear" className="nx-brand" aria-label="Nexora Menswear home">
-            <img src="/nexora/logo.png" alt="Nexora Menswear" width="64" height="64" />
+            <NxLogo width={64} height={64} alt="Nexora Menswear" />
             <span>NE<i>X</i>ORA<small>MENSWEAR</small></span>
           </Link>
 
@@ -120,7 +148,7 @@ export default function NxHeader() {
             <motion.div className="nx-scrim" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setDrawer(false)} />
             <motion.aside className="nx-drawer" initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }} transition={{ type: 'spring', stiffness: 260, damping: 30 }}>
               <button className="nx-icon nx-drawer-x" onClick={() => setDrawer(false)} aria-label="Close menu"><FiX /></button>
-              <img src="/nexora/logo.png" alt="" width="96" height="96" />
+              <NxLogo width={96} height={96} />
               {LINKS.map(([to, label], i) => (
                 <motion.div key={to} initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.05 * i }}>
                   <Link to={to}>{label}</Link>

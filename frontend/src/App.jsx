@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Footer from './components/Footer';
 import FloatingContact from './components/FloatingContact';
 import ProtectedRoute from './components/ProtectedRoute';
+import TabBrand from './components/TabBrand';
 
 import Home from './pages/Home';
 import Shop from './pages/Shop';
@@ -63,6 +64,7 @@ export default function App() {
 
   return (
     <>
+      <TabBrand />
       <ScrollToTop />
       <WakeNotice />
       {isNexora ? (

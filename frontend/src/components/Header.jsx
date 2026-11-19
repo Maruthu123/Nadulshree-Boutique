@@ -1,9 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
+import { FaTshirt } from 'react-icons/fa';
 import { FiSearch, FiShoppingBag, FiUser, FiMenu, FiX, FiLogOut, FiGrid, FiPackage } from 'react-icons/fi';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
+import './nexoraLink.css';
+
+// LOGO - unga logo path inga maathunga (public folder la file irukanum)
+// public folder la irukkura "ns" image. Extension theriyala na, ella extension-um auto-a try pannum
+const LOGO_NAME = '/ns';
+const LOGO_EXTS = ['png', 'jpg', 'jpeg', 'webp', 'svg', 'PNG', 'JPG', 'JPEG', 'jfif', 'avif'];
 
 const LINKS = [
   ['/', 'Home'],
@@ -29,6 +36,8 @@ export default function Header() {
   const [drawer, setDrawer] = useState(false);
   const [menu, setMenu] = useState(false);
   const menuRef = useRef(null);
+  const [extIdx, setExtIdx] = useState(0);
+  const logoSrc = extIdx < LOGO_EXTS.length ? `${LOGO_NAME}.${LOGO_EXTS[extIdx]}` : null;
 
   useEffect(() => { setDrawer(false); setMenu(false); }, [location.pathname]);
 
@@ -46,9 +55,23 @@ export default function Header() {
 
   return (
     <header className="hdr">
+      <style>{`
+        .brand{display:flex;align-items:center;gap:10px}
+        .brand-logo{height:44px;width:auto;max-width:90px;display:block;object-fit:contain;flex:none}
+        @media(max-width:600px){.brand-logo{height:36px;max-width:70px}}
+      `}</style>
+
       <div className="hdr-row">
         <Link to="/" className="brand" aria-label="Nadulshree Boutique home">
-          <span className="brand-mark">N</span>
+          {logoSrc && (
+            <img
+              key={logoSrc}
+              src={logoSrc}
+              alt=""
+              className="brand-logo"
+              onError={() => setExtIdx((i) => i + 1)}
+            />
+          )}
           <span className="brand-text">Nadulshree<small>Boutique</small></span>
         </Link>
 
@@ -95,7 +118,9 @@ export default function Header() {
 
       <nav className="hdr-links" aria-label="Main">
         {LINKS.map(([to, label]) => (
-          <NavLink key={to} to={to} end={to === '/'} className={({ isActive }) => (isActive ? 'active' : '')}>{label}</NavLink>
+          <NavLink key={to} to={to} end={to === '/'} className={({ isActive }) => [isActive ? 'active' : '', to === '/menswear' ? 'nav-nx' : ''].join(' ').trim()}>
+            {to === '/menswear' && <FaTshirt aria-hidden />}{label}
+          </NavLink>
         ))}
       </nav>
 
@@ -107,7 +132,7 @@ export default function Header() {
               <button className="icon-btn drawer-close" onClick={() => setDrawer(false)} aria-label="Close menu"><FiX /></button>
               {LINKS.map(([to, label], i) => (
                 <motion.div key={to} initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.05 * i }}>
-                  <NavLink to={to} end={to === '/'} className={({ isActive }) => (isActive ? 'active' : '')}>{label}</NavLink>
+                  <NavLink to={to} end={to === '/'} className={({ isActive }) => [isActive ? 'active' : '', to === '/menswear' ? 'nav-nx' : ''].join(' ').trim()}>{to === '/menswear' && <FaTshirt aria-hidden />} {label}</NavLink>
                 </motion.div>
               ))}
               <Link to="/cart">Cart ({count})</Link>

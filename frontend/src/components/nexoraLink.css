@@ -1,0 +1,25 @@
+/* Nexora Menswear highlight: nav pill + home banner (black + gold, like the Nexora poster) */
+.hdr-links a.nav-nx, .drawer a.nav-nx { display: inline-flex; align-items: center; gap: 7px; color: #111 !important; font-weight: 700; background: linear-gradient(120deg, #f1d77a, #d4af37 55%, #a97c10); box-shadow: 0 6px 16px rgba(212,175,55,.35); }
+.hdr-links a.nav-nx:hover { filter: brightness(1.06); transform: translateY(-1px); }
+.hdr-links a.nav-nx::after { display: none; }
+.drawer a.nav-nx { padding: 10px 16px; border-radius: 999px; width: fit-content; }
+
+.nxb-wrap { padding-top: 28px; padding-bottom: 8px; }
+.nxb { position: relative; display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 24px; padding: 34px 40px; border-radius: 26px; overflow: hidden; color: #fff; background: radial-gradient(70% 120% at 85% 20%, #2a2208 0%, #0b0b0b 60%); border: 1px solid rgba(212,175,55,.5); box-shadow: 0 24px 50px rgba(0,0,0,.28); transition: transform .35s, box-shadow .35s; }
+.nxb:hover { transform: translateY(-4px); box-shadow: 0 30px 60px rgba(212,175,55,.28); }
+.nxb::after { content: ''; position: absolute; right: -40px; bottom: 0; width: 260px; height: 10px; background: linear-gradient(120deg, #f1d77a, #a97c10); transform: skewX(-40deg); }
+.nxb-kick { letter-spacing: .3em; font-size: .7rem; color: #d4af37; font-weight: 600; }
+.nxb h2 { margin: 8px 0 6px; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; line-height: 1; color: #fff; }
+.nxb h2 b { background: linear-gradient(120deg, #f1d77a, #d4af37 50%, #a97c10); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.nxb-line { margin: 0 0 8px; font-weight: 600; letter-spacing: .04em; }
+.nxb-sub { margin: 0 0 20px; color: #c9c9c9; max-width: 460px; }
+.nxb-btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 24px; border-radius: 999px; font-weight: 700; color: #111; background: linear-gradient(120deg, #f1d77a, #d4af37 55%, #a97c10); }
+.nxb:hover .nxb-btn svg { transform: translateX(4px); }
+.nxb-btn svg { transition: transform .25s; }
+.nxb-pics { display: flex; justify-content: center; gap: 14px; perspective: 900px; }
+.nxb-pics img { width: 30%; max-width: 150px; aspect-ratio: 3/4; object-fit: cover; border-radius: 14px; border: 2px solid rgba(212,175,55,.7); background: #fff; box-shadow: 0 18px 30px rgba(0,0,0,.5); transition: transform .4s; }
+.nxb-pics img:nth-child(1) { transform: rotateY(18deg) translateY(10px); }
+.nxb-pics img:nth-child(2) { transform: translateY(-12px) translateZ(30px); }
+.nxb-pics img:nth-child(3) { transform: rotateY(-18deg) translateY(10px); }
+.nxb:hover .nxb-pics img { transform: rotateY(0) translateY(-6px); }
+@media (max-width: 800px) { .nxb { grid-template-columns: 1fr; padding: 26px 22px; } .nxb-pics img { max-width: 110px; } }
